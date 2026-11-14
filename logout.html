@@ -2,20 +2,43 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FreshMarket - Logout Confirmation</title>
         <link rel="stylesheet" type="text/css" href="mystyle.css">
     </head>
     <body>
-        <h1>Logout Confirmation</h1>
-        <p>You have been successfully logged out of your account.</p>
-        <p>
-            <img src="images/check.jpg" alt="Logout Confirmation" width="150" height="150">
-        </p>
-        <hr>
-        <p>Where would you like to go next?</p>
-        <ul>
-            <li><a href="login.html">Log in again</a></li>
-            <li><a href="index.html">Return to Homepage</a></li>
-        </ul>
+        <!-- top bar -->
+        <div class="topbar">Free home delivery from 60 EUR &middot; Fresh products every day</div>
+        <!-- header: logo + main menu (same on every page) -->
+        <div class="header">
+            <a href="index.html"><img src="images/logo.png" alt="FreshMarket logo" width="200" height="50"></a>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Customer Area</a></li>
+                    <li><a href="about.html">Seller Information</a></li>
+                    <li><a class="cart-button" href="shoppingCart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container narrow">
+            <div class="card centered">
+                <img src="images/check.jpg" alt="Logout Confirmation" width="150" height="150">
+                <h1>Logout Confirmation</h1>
+                <p>You have been successfully logged out of your account.</p>
+                <hr>
+                <p>Where would you like to go next?</p>
+                <ul class="button-list">
+                    <li><a class="button-link" href="login.html">Log in again</a></li>
+                    <li><a class="button-link outline" href="index.html">Return to Homepage</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- footer -->
+        <div class="footer">
+            <p><a href="index.html">Home</a> | <a href="login.html">Customer Area</a> | <a href="about.html">Seller Information</a></p>
+            <p>FreshMarket Supermarket &middot; Esplanade 10, 85049 Ingolstadt &middot; +49 888 9999 0</p>
+            <p>&copy; 2026 FreshMarket - Group 3 - Web Technologies</p>
+        </div>
     </body>
 </html>

@@ -2,36 +2,59 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>FreshMarket</title>
         <link rel="stylesheet" type="text/css" href="mystyle.css">
     </head>
     <body>
-        <h1>Welcome to FreshMarket Web-Shop</h1>
-        <p>Your online shop for fresh meat, fish, and groceries.</p>
-        <hr>
-        <h2>Main Menu</h2>
-        <ul>
-            <li><a href="login.html">Customer Area</a></li>
-            <li><a href="shoppingCart.html">Shopping Cart</a></li>
-            <li><a href="about.html">Seller Information</a></li>
-        </ul>
-        <hr>
-        <h2>Product Categories</h2>
-        <ul>
-            <li>
-                <a href="meatList.html">Meat &amp; Poultry</a>
+        <!-- top bar -->
+        <div class="topbar">Free home delivery from 60 EUR &middot; Fresh products every day</div>
+        <!-- header: logo + main menu (same on every page) -->
+        <div class="header">
+            <a href="index.html"><img src="images/logo.png" alt="FreshMarket logo" width="200" height="50"></a>
+            <div class="menu">
                 <ul>
-                    <li><a href="poultryList.html">Poultry</a></li>
-                    <li><a href="beefPorkList.html">Beef &amp; Pork</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Customer Area</a></li>
+                    <li><a href="about.html">Seller Information</a></li>
+                    <li><a class="cart-button" href="shoppingCart.html">Shopping Cart</a></li>
                 </ul>
-            </li>
-            <li>
-                <a href="fishList.html">Fish &amp; Seafood</a>
-                <ul>
-                    <li><a href="freshFishList.html">Fresh Fish</a></li>
-                    <li><a href="seafoodList.html">Seafood</a></li>
-                </ul>
-            </li>
-        </ul>
+            </div>
+        </div>
+        <div class="container">
+            <!-- green banner -->
+            <div class="hero">
+                <div>
+                    <h1>Welcome to FreshMarket Web-Shop</h1>
+                    <p>Your online shop for fresh meat, fish, and groceries.</p>
+                    <a class="button-link light" href="freshFishList.html">Discover our fresh fish</a>
+                </div>
+                <img src="images/salmon.jpg" alt="Fresh salmon fillet" width="200" height="200">
+            </div>
+            <h2>Product Categories</h2>
+            <!-- categories with 2 subcategories each -->
+            <ul class="category-list">
+                <li>
+                    <a href="meatList.html">Meat &amp; Poultry</a>
+                    <ul>
+                        <li><a href="poultryList.html">Poultry</a></li>
+                        <li><a href="beefPorkList.html">Beef &amp; Pork</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="fishList.html">Fish &amp; Seafood</a>
+                    <ul>
+                        <li><a href="freshFishList.html">Fresh Fish</a></li>
+                        <li><a href="seafoodList.html">Seafood</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- footer -->
+        <div class="footer">
+            <p><a href="index.html">Home</a> | <a href="login.html">Customer Area</a> | <a href="about.html">Seller Information</a></p>
+            <p>FreshMarket Supermarket &middot; Esplanade 10, 85049 Ingolstadt &middot; +49 888 9999 0</p>
+            <p>&copy; 2026 FreshMarket - Group 3 - Web Technologies</p>
+        </div>
     </body>
 </html>

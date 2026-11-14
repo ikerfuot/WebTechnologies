@@ -1,68 +1,522 @@
-/* mystyle.css */
+/* mystyle.css - FreshMarket web-shop (Group 3) */
+/* one stylesheet for all pages (exercise sheet 2) */
 
-/* typography & base */
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
-    text-align: center;
-    margin: 0 auto;
-    background-color: #ffffff;
+
+/* our colors (CI) */
+/* the green/white look is inspired by the mercadona online shop */
+:root {
+    --green: #00923f;
+    --dark-green: #00672b;
+    --light-green: #e8f5ec;
+    --orange: #f39200;
+    --gray-bg: #f4f4f4;
+    --text: #333333;
+    --border: #dddddd;
 }
 
+/* padding and border are part of the width */
+* {
+    box-sizing: border-box;
+}
+
+
+/* typography & base */
+
+/* task 1: our font + font size 12 */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: var(--text);
+    background-color: var(--gray-bg);
+    margin: 0;
+}
+
+/* task 2: font size depends on the usage of the text */
 h1 {
-    font-size: 2.2em;
-    color: #005a00; 
+    font-size: 2em;
+    color: var(--dark-green);
+    margin: 10px 0;
 }
 
 h2 {
-    font-size: 1.5em;
-    color: #e67300; 
-    border-bottom: 1px solid #ddd;
+    font-size: 1.4em;
+    color: var(--dark-green);
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 5px;
 }
 
 h3 {
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
+/* task 1: paragraphs aligned to the right */
+/* in cards, forms, banner and footer we change it again further down */
 p {
     text-align: right;
     font-size: 1em;
+    line-height: 1.5;
 }
 
-th {
-    background-color: #d3d3d3;
+p::selection {
+    color: white;
+    background-color: var(--green);
 }
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+}
+
+/* image centering */
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;   /* never bigger than the box (mobile) */
+    height: auto;      /* keeps the proportions */
+}
+
 
 /* links */
+
+/* task 1: different styles for the links + hover */
 a:link {
-    color: #005a00;
+    color: var(--green);
+    font-weight: bold;
     text-decoration: none;
 }
 
 a:visited {
-    color: #666666;
+    color: var(--dark-green);
 }
 
 a:hover {
-    color: #e67300;
+    color: var(--orange);
     text-decoration: underline;
 }
 
-/* forms */
-form {
+a:active {
+    color: var(--orange);
+}
+
+/* links that look like buttons (like the button-link example in the slides) */
+a.button-link:link,
+a.button-link:visited {
+    display: inline-block;
+    background-color: var(--green);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.button-link:hover,
+a.button-link:active {
+    background-color: var(--dark-green);
+}
+
+/* white button for the green banner */
+a.button-link.light:link,
+a.button-link.light:visited {
+    background-color: white;
+    color: var(--green);
+}
+
+a.button-link.light:hover {
+    background-color: var(--light-green);
+}
+
+/* only a green border, gets filled on hover (like "add to cart" in mercadona) */
+a.button-link.outline:link,
+a.button-link.outline:visited {
+    background-color: white;
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
+a.button-link.outline:hover {
+    background-color: var(--green);
+    color: white;
+}
+
+
+/* top bar, header and footer (same on every page) */
+
+.topbar {
+    background-color: var(--dark-green);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 6px;
+}
+
+/* flexbox: logo on the left, menu on the right */
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px 40px;
+    border-bottom: 3px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.menu a:link,
+.menu a:visited {
+    display: inline-block;
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    color: var(--dark-green);
+    background-color: var(--light-green);
+    text-decoration: none;
+}
+
+/* the cart is the important one -> green */
+.menu a.cart-button:link,
+.menu a.cart-button:visited {
+    color: white;
+    background-color: var(--green);
+}
+
+.menu a.cart-button:hover {
+    background-color: var(--dark-green);
+}
+
+.footer {
+    background-color: var(--dark-green);
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+.footer p {
+    text-align: center;
+    margin: 5px;
+}
+
+/* green links would not be visible on the green footer */
+.footer a:link,
+.footer a:visited {
+    color: white;
+}
+
+.footer a:hover {
+    color: var(--orange);
+}
+
+
+/* content */
+
+/* task 1: the whole content is centered (max width + margin auto) */
+.container {
+    max-width: 1100px;
+    min-height: 65vh;   /* so the footer is not in the middle on short pages */
     margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* smaller column for the form pages */
+.container.narrow {
+    max-width: 500px;
+}
+
+/* title + the text right after it are centered here */
+.container.narrow h1,
+.container.narrow h1 + p {
+    text-align: center;
+}
+
+/* h1 on the left, short description on the right (same line) */
+.page-title {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* white box with shadow, we use it everywhere */
+.card {
+    background-color: white;
+    border-radius: 8px;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 350px;
-    background-color: #f9f9f9;
-    box-sizing: border-box;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.card.centered,
+.card.centered p {
+    text-align: center;
+}
+
+.breadcrumb {
+    font-size: 0.85em;
+    color: gray;
+}
+
+p.breadcrumb {
+    text-align: left;
+}
+
+
+/* home page */
+
+.hero {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--green);
+    color: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    color: white;
+}
+
+.hero p {
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.hero img {
+    border-radius: 50%;   /* round picture */
+    background-color: white;
+    margin: 10px;
+}
+
+/* categories as boxes next to each other */
+.category-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list > li {
+    width: 320px;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    border-top: 5px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.category-list > li:hover {
+    border-top: 5px solid var(--orange);
+}
+
+.category-list > li > a {
+    font-size: 1.3em;
+}
+
+/* subcategories */
+.category-list ul {
+    list-style-type: square;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.category-list ul li {
+    padding: 4px 0;
+}
+
+
+/* grid (12 columns, like in the responsive web design slides) */
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 10px;
+}
+
+/* we only need these ones */
+.col-3 {
+    width: 25%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+
+/* category page */
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul ul {
+    padding-left: 15px;
+}
+
+/* white border = same color as the box, so the text doesn't move on hover */
+.sidebar a:link,
+.sidebar a:visited {
+    display: block;
+    color: var(--text);
+    padding: 8px;
+    border-left: 4px solid white;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: var(--green);
+    background-color: var(--light-green);
+    border-left: 4px solid var(--green);
+    text-decoration: none;
+}
+
+/* product cards, they go to the next line when there is no space */
+.product-list {
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    width: 230px;
+    margin: 10px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.product-list li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.product-list h3 {
+    margin: 10px 0 5px 0;
+}
+
+.product-list p {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.description {
+    color: gray;
+    font-size: 0.85em;
+}
+
+.price {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.unit {
+    font-size: 0.6em;
+    font-weight: normal;
+    color: gray;
+}
+
+
+/* product page */
+
+/* long text is easier to read on the left */
+.product-info p {
+    text-align: left;
+    margin: 8px 0;
+}
+
+.product-info .price {
+    font-size: 2em;
+    color: var(--dark-green);
+}
+
+
+/* tables (about page) */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: left;
+}
+
+/* task 1: table headers light gray */
+th {
+    background-color: lightgray;
+    width: 40%;
+}
+
+tr:nth-child(even) td {
+    background-color: #fafafa;
+}
+
+tr:hover td {
+    background-color: var(--light-green);
+}
+
+
+/* forms */
+
+/* task 2: frame and spacing of the forms */
+form {
+    background-color: white;
+    width: 400px;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 5px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    text-align: left;
+}
+
+/* label + field are inside a <p>, without this they would be on the right */
+form p {
     text-align: left;
 }
 
 label {
-    display: inline-block;
+    display: block;
     margin-bottom: 5px;
+    font-size: 0.9em;
     font-weight: bold;
 }
 
@@ -71,46 +525,102 @@ input[type="text"],
 input[type="password"],
 input[type="number"] {
     width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
+    padding: 10px 12px;
+    border: 2px solid var(--border);
     border-radius: 4px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
+}
+
+/* field where the cursor is */
+input:focus {
+    background-color: var(--light-green);
+    border: 2px solid var(--green);
+}
+
+/* buttons */
+input[type="submit"],
+button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--green);
+    color: white;
+    border: 2px solid var(--green);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: var(--dark-green);
+}
+
+/* task 2: same font in the form fields (they don't take it from the body) */
+input,
+button {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
 }
 
-input:focus {
-    background-color: #eeeeee;
+/* second button (registration, cancel) is white */
+button.secondary {
+    background-color: white;
+    color: var(--green);
 }
 
-/* buttons */
-input[type="submit"], 
-button {
-    background-color: #005a00;
-    color: #ffffff;
-    border: none;
-    padding: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
+button.secondary:hover {
+    background-color: var(--light-green);
+}
+
+/* the form on the product page is already inside a card */
+form.buy-form {
     width: 100%;
-    display: block;
+    padding: 0;
+    margin: 0;
+    border-top: none;
+    box-shadow: none;
 }
 
-input[type="submit"]:hover, 
-button:hover {
-    background-color: #008000;
+form.buy-form input[type="number"] {
+    width: 100px;
 }
-li p {
-    text-align: left;
+
+/* links shown as buttons in a row (customer + logout page) */
+.button-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
 }
-.product-info p {
-    text-align: left;
+
+.button-list li {
+    display: inline-block;
+    margin: 5px;
 }
-/* image centering */
-img {
-    display: block;
-    margin: auto;
+
+
+/* small screens (mobile) */
+/* has to be at the end: same priority as .col-6 etc., so the last one wins */
+@media screen and (max-width: 768px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    .header {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .menu ul {
+        text-align: center;
+    }
+
+    .hero {
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .product-list {
+        justify-content: center;
+    }
 }
