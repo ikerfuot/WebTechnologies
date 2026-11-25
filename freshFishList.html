@@ -18,6 +18,10 @@
                     <li><a href="login.html">Customer Area</a></li>
                     <li><a href="about.html">Seller Information</a></li>
                     <li><a class="cart-button" href="shoppingCart.html">Shopping Cart</a></li>
+                    <!-- Task 2: botones de estilo, llaman a funciones de darkmode.js -->
+                    <!-- Task 2: style buttons, they call functions of darkmode.js -->
+                    <li><button type="button" onclick="toggleDark()">Dark mode</button></li>
+                    <li><button type="button" onclick="toggleLayout()">Layout</button></li>
                 </ul>
             </div>
         </div>
@@ -53,22 +57,49 @@
                         <p>Available products in the Fresh Fish subcategory.</p>
                     </div>
                     <h2>Product List</h2>
+                    <!-- Task 4: buscar y ordenar, llaman a funciones de products.js -->
+                    <!-- Task 4: search and sort, they call functions of products.js -->
+                    <div class="card product-tools">
+                        <label for="searchWord">Search products:</label>
+                        <input type="text" id="searchWord" name="searchWord">
+                        <button type="button" onclick="searchProducts()">Search</button>
+                        <button type="button" onclick="sortByPrice()">Sort by price</button>
+                        <p id="searchMessage"></p>
+                    </div>
                     <ul class="product-list">
                         <li>
                             <img src="images/salmon.jpg" alt="Atlantic Salmon" width="200" height="200">
                             <h3>Fresh Atlantic Salmon Fillet</h3>
                             <p class="description">Freshly caught Norwegian salmon fillet. Rich in Omega-3.</p>
-                            <p class="price">12.99 EUR <span class="unit">/ portion</span></p>
+                            <p class="price"><span class="amount">12.99</span> EUR <span class="unit">/ portion</span></p>
+                            <p>
+                                <label for="quantitySalmon">Quantity:</label>
+                                <input type="number" id="quantitySalmon" value="1" min="1">
+                            </p>
+                            <button type="button" onclick="addToCollection('Fresh Atlantic Salmon Fillet', 12.99, 'quantitySalmon')">Add to collection list</button>
                             <a class="button-link outline" href="freshSalmon01.html">View Details</a>
                         </li>
                         <li>
                             <img src="images/seabass.jpg" alt="Wild Sea Bass" width="200" height="200">
                             <h3>Wild Sea Bass</h3>
                             <p class="description">Whole fresh sea bass, ideal for grilling or baking.</p>
-                            <p class="price">14.50 EUR <span class="unit">/ portion</span></p>
+                            <p class="price"><span class="amount">14.50</span> EUR <span class="unit">/ portion</span></p>
+                            <p>
+                                <label for="quantitySeaBass">Quantity:</label>
+                                <input type="number" id="quantitySeaBass" value="1" min="1">
+                            </p>
+                            <button type="button" onclick="addToCollection('Wild Sea Bass', 14.50, 'quantitySeaBass')">Add to collection list</button>
                             <a class="button-link outline" href="seaBass02.html">View Details</a>
                         </li>
                     </ul>
+                    <!-- Task 3: lista de coleccion debajo de los productos, la rellena collection.js -->
+                    <!-- Task 3: collection list below the products, collection.js fills it -->
+                    <div class="card collection">
+                        <h2>Collection List</h2>
+                        <div id="collectionList">
+                            <p>The collection list is empty.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <p>
@@ -81,5 +112,8 @@
             <p>FreshMarket Supermarket &middot; Esplanade 10, 85049 Ingolstadt &middot; +49 888 9999 0</p>
             <p>&copy; 2026 FreshMarket - Group 3 - Web Technologies</p>
         </div>
+        <script src="darkmode.js"></script>
+        <script src="collection.js"></script>
+        <script src="products.js"></script>
     </body>
 </html>

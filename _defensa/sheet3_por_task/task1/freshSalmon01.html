@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FreshMarket - Fresh Atlantic Salmon Fillet</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+    </head>
+    <body>
+        <!-- Barra superior - top bar -->
+        <div class="topbar">Free home delivery from 60 EUR &middot; Fresh products every day</div>
+        <!-- header: logo + main menu (same on every page) -->
+        <div class="header">
+            <a href="index.html"><img src="images/logo.png" alt="FreshMarket logo" width="200" height="50"></a>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Customer Area</a></li>
+                    <li><a href="about.html">Seller Information</a></li>
+                    <li><a class="cart-button" href="shoppingCart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <p class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="fishList.html">Fish &amp; Seafood</a> &gt; <a href="freshFishList.html">Fresh Fish</a> &gt; Fresh Atlantic Salmon Fillet</p>
+            <div class="row">
+                <!-- imagen - picture -->
+                <div class="col-6">
+                    <div class="card">
+                        <img src="images/salmon.jpg" alt="Fresh Atlantic Salmon Fillet" width="400" height="400">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <h1>Fresh Atlantic Salmon Fillet</h1>
+                        <h2>Product Details</h2>
+                        <div class="product-info">
+                            <p class="price">12.99 EUR</p>
+                            <p><strong>Description:</strong> Premium grade fresh Norwegian salmon fillet, harvested daily. Rich in Omega-3 fatty acids and ideal for grilling, baking, or pan-searing.</p>
+                            <p><strong>Origin:</strong> Norway</p>
+                            <p><strong>Weight:</strong> 500g</p>
+                        </div>
+                        <hr>
+                        <form class="buy-form" action="shoppingCart.html" method="get">
+                            <p>
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" value="1" min="1">
+                            </p>
+                            <p>
+                                <input type="submit" value="Add to Shopping Cart">
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a href="freshFishList.html">Back to Fresh Fish Category</a> | <a href="index.html">Return to Homepage</a>
+            </p>
+        </div>
+        <!-- pie de pagina - footer -->
+        <div class="footer">
+            <p><a href="index.html">Home</a> | <a href="login.html">Customer Area</a> | <a href="about.html">Seller Information</a></p>
+            <p>FreshMarket Supermarket &middot; Esplanade 10, 85049 Ingolstadt &middot; +49 888 9999 0</p>
+            <p>&copy; 2026 FreshMarket - Group 3 - Web Technologies</p>
+        </div>
+    </body>
+</html>

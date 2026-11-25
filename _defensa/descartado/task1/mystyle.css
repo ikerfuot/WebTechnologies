@@ -1,0 +1,78 @@
+/* =============================================================
+   mystyle.css  -  FreshMarket web-shop
+   Exercise Sheet 2 - TASK 1 (First style definitions)
+   One block per bullet point of the task sheet.
+   ============================================================= */
+
+
+/* -------------------------------------------------------------
+   1. "Change the font-family to the one of your choice
+       and the font-size to 12."
+   ------------------------------------------------------------- */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+}
+
+
+/* -------------------------------------------------------------
+   2. "Change paragraphs to justify using text-align to right."
+   ------------------------------------------------------------- */
+p {
+    text-align: right;
+}
+
+
+/* -------------------------------------------------------------
+   3. "Change the background-color of table headers to light gray."
+      (tables: about.html)
+   ------------------------------------------------------------- */
+th {
+    background-color: lightgray;
+}
+
+
+/* -------------------------------------------------------------
+   4. "Center the entire content."
+   ------------------------------------------------------------- */
+body {
+    text-align: center;     /* text and inline elements      */
+    margin: 0 auto;
+}
+
+table {
+    margin: auto;           /* block element: centered with margin auto */
+}
+
+img {
+    display: block;         /* images stay centered, also inside the */
+    margin: auto;           /* right-aligned paragraphs              */
+}
+
+
+/* -------------------------------------------------------------
+   5. "Realize different styles for the links in the document."
+      Each link state has its own style.
+   ------------------------------------------------------------- */
+a:link {                    /* link not visited yet */
+    color: #005a00;
+    text-decoration: none;
+}
+
+a:visited {                 /* link already visited */
+    color: #666666;
+}
+
+
+/* -------------------------------------------------------------
+   6. "Additionally change the style of the links when the mouse
+       is placed over the link."
+   ------------------------------------------------------------- */
+a:hover {
+    color: #e67300;
+    text-decoration: underline;
+}
+
+a:active {                  /* while the link is being clicked */
+    color: #ff0000;
+}

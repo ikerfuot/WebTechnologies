@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FreshMarket - Customer Profile</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+    </head>
+    <body>
+        <!-- Barra superior - top bar -->
+        <div class="topbar">Free home delivery from 60 EUR &middot; Fresh products every day</div>
+        <!-- header: logo + main menu (same on every page) -->
+        <div class="header">
+            <a href="index.html"><img src="images/logo.png" alt="FreshMarket logo" width="200" height="50"></a>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Customer Area</a></li>
+                    <li><a href="about.html">Seller Information</a></li>
+                    <li><a class="cart-button" href="shoppingCart.html">Shopping Cart</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container narrow">
+            <h1>Customer Profile</h1>
+            <p>Welcome to your personal account area.</p>
+            <form action="customer.html" method="get">
+                <!-- ejemplo de dato, no hay server todavia -->
+                <!-- sample data, there is no server yet -->
+                <h2>Personal Information</h2>
+                <p>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" value="FreshUser">
+                    <span class="message" id="usernameMessage"></span>
+                </p>
+                <p>
+                    <label for="password">Current Password:</label>
+                    <input type="password" id="password" name="password" value="fresh123456">
+                    <span class="message" id="passwordMessage"></span>
+                </p>
+                <p>
+                    <label for="confirmPassword">Repeat Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" value="fresh123456">
+                    <span class="message" id="confirmPasswordMessage"></span>
+                </p>
+                <p>
+                    <!-- Task 1: el boton valida los campos antes de actualizar -->
+                    <!-- Task 1: the button validates the fields before updating -->
+                    <button type="button" onclick="checkProfile()">Update Profile</button>
+                </p>
+            </form>
+            <div class="card centered">
+                <h2>Account Options</h2>
+                <ul class="button-list">
+                    <li><a class="button-link" href="logout.html">Log out</a></li>
+                    <li><a class="button-link outline" href="index.html">Return to Homepage</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- pie de pagina - footer -->
+        <div class="footer">
+            <p><a href="index.html">Home</a> | <a href="login.html">Customer Area</a> | <a href="about.html">Seller Information</a></p>
+            <p>FreshMarket Supermarket &middot; Esplanade 10, 85049 Ingolstadt &middot; +49 888 9999 0</p>
+            <p>&copy; 2026 FreshMarket - Group 3 - Web Technologies</p>
+        </div>
+        <script src="validation.js"></script>
+    </body>
+</html>

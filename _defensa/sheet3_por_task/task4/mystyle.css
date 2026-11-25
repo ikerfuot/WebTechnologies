@@ -1,0 +1,822 @@
+/* mystyle.css - FreshMarket web-shop (Group 3) */
+
+/* Inspirado en Mercadona*/
+/* the green/white look is inspired by the mercadona online shop */
+:root {
+    --green: #00923f;
+    --dark-green: #00672b;
+    --light-green: #e8f5ec;
+    --orange: #f39200;
+    --gray-bg: #f4f4f4;
+    --text: #333333;
+    --border: #dddddd;
+    /* Fondo de tarjetas, cabecera y campos */
+    /* Background of cards, header and fields */
+    --card: white;
+    --red: #c62828;
+    --light-red: #fdecea;
+}
+
+/* Task 2: modo oscuro, la clase dark en el body cambia los valores de las variables */
+/* Task 2: dark mode, the dark class on the body changes the values of the variables */
+body.dark {
+    --green: #00923f;
+    --dark-green: #1a8f4f;
+    --light-green: #1f3a2a;
+    --gray-bg: #181818;
+    --text: #eeeeee;
+    --border: #555555;
+    --card: #262626;
+    --red: #ff6b6b;
+    --light-red: #4a2222;
+}
+
+/* El relleno no afecta al tamaño general de un elemento si box-sizing está configurado como border-box
+Padding does not affect the overall size of an element if box-sizing is set to border-box */
+* {
+    box-sizing: border-box;
+}
+
+/* Tipografia y base - typography & base */
+
+/* Task 1: fuente elegida, color para las letras, tamaño y el fondo de pantalla
+   Task 1: chosen font, color for the letters, size and background */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    color: var(--text);
+    background-color: var(--gray-bg);
+    margin: 0;
+}
+
+/* Task 2: font size depends on the usage of the text */
+h1 {
+    font-size: 2em;
+    color: var(--dark-green);
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 1.4em;
+    color: var(--dark-green);
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 5px;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+/* Task 1: Párrafos alineados a la derecha - Paragraphs aligned to the right */
+/* En tarjetas, formularios, banner y pie de página, se modifica más abajo al ser algo NO general*/
+/* In cards, forms, banners, and footers, it is modified below as it is not a general rule */
+p {
+    text-align: right;
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+p::selection {
+    color: white;
+    background-color: var(--green);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0;
+}
+
+/* image centering */
+img {
+    display: block;
+    margin: auto;
+    max-width: 100%;   /* Nunca mas grande que el box - Never bigger than the box */
+    height: auto;      /* mantiene proporciones - keeps proportions */
+}
+
+
+/* Links */
+
+/* Task 1: Orden de los diferentes estilos de los enlaces */
+/* Task 1: Order of the different link styles*/
+a:link {
+    color: var(--green);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--dark-green);
+}
+
+a:hover {
+    color: var(--orange);
+    text-decoration: underline;
+}
+
+a:active {
+    color: var(--orange);
+}
+
+/* Enlaces para botones  */
+/* Links that look like buttons  */
+a.button-link:link,
+a.button-link:visited {
+    display: inline-block;
+    background-color: var(--green);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+a.button-link:hover,
+a.button-link:active {
+    background-color: var(--dark-green);
+}
+
+/* Boton para el banner del index blanco */
+/* Button for the white index banner */
+a.button-link.light:link,
+a.button-link.light:visited {
+    background-color: white;
+    color: var(--green);
+}
+
+a.button-link.light:hover {
+    background-color: var(--light-green);
+}
+
+/* Boton para producto que solo se rellena con verde en hovern*/
+/* Product button that only fills with green on hover */
+a.button-link.outline:link,
+a.button-link.outline:visited {
+    background-color: var(--card);
+    color: var(--green);
+    border: 2px solid var(--green);
+}
+
+a.button-link.outline:hover {
+    background-color: var(--green);
+    color: white;
+}
+/* Bara superior, cabecera y pie de pagina */
+/* Top bar, header and footer*/
+.topbar {
+    background-color: var(--dark-green);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 6px;
+}
+
+/* Estilo linea cabecera: logo izquierda, menu derecha */
+/* Header line style: logo left, menu right */
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card);
+    padding: 10px 40px;
+    border-bottom: 3px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.menu a:link,
+.menu a:visited {
+    display: inline-block;
+    color: var(--text);
+    padding: 10px 14px;
+    border-radius: 5px;
+}
+
+.menu a:hover {
+    color: var(--dark-green);
+    background-color: var(--light-green);
+    text-decoration: none;
+}
+
+/* Boton de carrito de la compra */
+/* Shopping cart button */
+.menu a.cart-button:link,
+.menu a.cart-button:visited {
+    color: white;
+    background-color: var(--green);
+}
+
+.menu a.cart-button:hover {
+    background-color: var(--dark-green);
+}
+
+/* Task 2: botones Dark mode y Layout del menu */
+/* Task 2: Dark mode and Layout buttons of the menu */
+.menu button {
+    display: inline-block;
+    width: auto;
+    margin-top: 0;
+    padding: 8px 14px;
+    background-color: var(--card);
+    color: var(--green);
+}
+
+.menu button:hover {
+    background-color: var(--light-green);
+}
+
+/* Pie de pagina */
+/* Footer */
+.footer {
+    background-color: var(--dark-green);
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+    padding: 25px;
+    margin-top: 40px;
+}
+
+.footer p {
+    text-align: center;
+    margin: 5px;
+}
+
+.footer a:link,
+.footer a:visited {
+    color: white;
+}
+
+.footer a:hover {
+    color: var(--orange);
+}
+
+/* Contenido */
+/* Content */
+
+/* Task 1: todo el contenido centrado 
+/* Task 1: he whole content is centered */
+.container {
+    max-width: 1100px;
+    min-height: 65vh;   /* so the footer is not in the middle on short pages */
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* Registro */
+/* Registration */
+.container.narrow {
+    max-width: 500px;
+}
+
+/* Titulo y texto centrados
+/* Title and text centered */
+.container.narrow h1,
+.container.narrow h1 + p {
+    text-align: center;
+}
+
+/* Título a la izquierda, breve descripción a la derecha en la misma línea */
+/* Title on the left, short description on the right in the same line */
+.page-title {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Caja blanca con sombreado */
+/* White box with shadow */
+.card {
+    background-color: var(--card);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.card.centered,
+.card.centered p {
+    text-align: center;
+}
+
+/* Ultima pagina visitada, para volver atrás */
+/* Last visited page, to go back */
+.breadcrumb {
+    font-size: 0.85em;
+    color: gray;
+}
+
+p.breadcrumb {
+    text-align: left;
+}
+
+/* Banner de bienvenida */
+/* Welcome banner */
+.hero {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--green);
+    color: white;
+    padding: 30px 40px;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    color: white;
+}
+
+.hero p {
+    text-align: left;
+    font-size: 1.1em;
+}
+
+.hero img {
+    border-radius: 50%;   /* round picture */
+    background-color: white;
+    margin: 10px;
+}
+
+/* Lista de categorias Index */
+/* Category list Index*/
+.category-list {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list > li {
+    width: 320px;
+    margin: 10px;
+    padding: 20px;
+    background-color: var(--card);
+    border-radius: 8px;
+    border-top: 5px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.category-list > li:hover {
+    border-top: 5px solid var(--orange);
+}
+
+.category-list > li > a {
+    font-size: 1.3em;
+}
+
+/* Subcategorias Index */
+/* Subcategories Index*/
+.category-list ul {
+    list-style-type: square;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.category-list ul li {
+    padding: 4px 0;
+}
+
+
+/* Cuadricula de 12 columnas */
+/* 12-column grid */
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] {
+    float: left;
+    padding: 10px;
+}
+
+/* Solo necesitamos estas */
+/* We only need these */
+.col-3 {
+    width: 25%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+/* pagina de categoria */
+/* category page */
+
+/* menu lateral con subcategorias */
+/* sidebar menu with subcategories */
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar ul ul {
+    padding-left: 15px;
+}
+
+.sidebar a:link,
+.sidebar a:visited {
+    display: block;
+    color: var(--text);
+    padding: 8px;
+    border-left: 4px solid var(--card);
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+    color: var(--green);
+    background-color: var(--light-green);
+    border-left: 4px solid var(--green);
+    text-decoration: none;
+}
+
+/* Lista de productos*/
+/* Salto de linea cuando no queda espacio */
+/*  Line break when there is no space left */
+.product-list {
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-list li {
+    width: 230px;
+    margin: 10px;
+    padding: 15px;
+    background-color: var(--card);
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.product-list li:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.product-list h3 {
+    margin: 10px 0 5px 0;
+}
+
+.product-list p {
+    text-align: center;
+    margin: 5px 0;
+}
+
+.description {
+    color: gray;
+    font-size: 0.85em;
+}
+
+.price {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.unit {
+    font-size: 0.6em;
+    font-weight: normal;
+    color: gray;
+}
+
+/* Campo de cantidad dentro de la tarjeta de producto */
+/* Quantity field inside the product card */
+.product-list input[type="number"] {
+    width: 80px;
+}
+
+/* Separacion entre los botones de la tarjeta de producto */
+/* Space between the buttons of the product card */
+.product-list button,
+.product-list a.button-link {
+    margin: 5px;
+}
+
+/* Task 4: buscador y boton de ordenar encima de los productos */
+/* Task 4: search field and sort button above the products */
+.product-tools {
+    margin: 10px;
+}
+
+.product-tools p {
+    text-align: left;
+    margin: 0;
+}
+
+.product-tools input[type="text"] {
+    width: 250px;
+    max-width: 100%;
+}
+
+.product-tools button {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+    padding: 10px 20px;
+}
+
+/* Task 4: la busqueda esconde las tarjetas con esta clase */
+/* Task 4: the search hides the cards with this class */
+.hidden {
+    display: none;
+}
+
+/* Pagina de producto */
+/* Product page */
+.product-info p {
+    text-align: left;
+    margin: 8px 0;
+}
+
+.product-info .price {
+    font-size: 2em;
+    color: var(--dark-green);
+}
+
+/* Task 4: calculadora de precio con IVA */
+/* Task 4: price calculator with tax */
+.calculator p {
+    text-align: left;
+    margin: 8px 0;
+}
+
+.calculator input[type="number"] {
+    width: 150px;
+}
+
+.calculator button {
+    display: inline-block;
+    width: auto;
+    padding: 10px 20px;
+}
+
+/* Tablas (pagina about de momento)*/
+/* Tables (about page for now) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 10px;
+    text-align: left;
+}
+
+/* Task 1: encabezados de tabla gris claro */
+/* Task 1: table headers light gray */
+th {
+    background-color: lightgray;
+    width: 40%;
+}
+
+tr:nth-child(even) td {
+    background-color: #fafafa;
+}
+
+tr:hover td {
+    background-color: var(--light-green);
+}
+
+/* Task 2: colores de las tablas en modo oscuro */
+/* Task 2: table colors in dark mode */
+body.dark th {
+    background-color: var(--border);
+}
+
+body.dark tr:nth-child(even) td {
+    background-color: var(--gray-bg);
+}
+
+body.dark tr:hover td {
+    background-color: var(--light-green);
+}
+
+/* Task 3: tabla de la lista de coleccion */
+/* Task 3: collection list table */
+.collection th {
+    width: auto;
+}
+
+.collection button {
+    display: inline-block;
+    width: auto;
+    margin-top: 0;
+    padding: 6px 12px;
+}
+
+.collection p {
+    font-weight: bold;
+}
+
+/* Formularios */
+/* Forms */
+
+/* Tarea 2: Marco y espaciado de los formularios */
+/* Task 2: frame and spacing of the forms */
+form {
+    background-color: var(--card);
+    width: 400px;
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 25px;
+    border-radius: 8px;
+    border-top: 5px solid var(--green);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    text-align: left;
+}
+/* Todo esta alineado a la izquierda */
+/* Everything is aligned to the left */
+form p {
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+/* Entradas de texto, contraseña y número */
+/* Inputs */
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    background-color: var(--card);
+    color: var(--text);
+}
+
+/*Campo donde está el cursor */
+/* Field where the cursor is */
+input:focus {
+    background-color: var(--light-green);
+    border: 2px solid var(--green);
+}
+
+/* Task 1: campo con error en rojo y campo correcto en verde */
+/* Task 1: field with an error in red and correct field in green */
+input.error {
+    background-color: var(--light-red);
+    border: 2px solid var(--red);
+}
+
+input.valid {
+    background-color: var(--light-green);
+    border: 2px solid var(--green);
+}
+
+/* Task 1: aviso debajo del campo */
+/* Task 1: warning below the field */
+.message {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.85em;
+    color: var(--red);
+}
+
+/* Boton de enviar */
+/* Submit button */
+input[type="submit"],
+button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    background-color: var(--green);
+    color: white;
+    border: 2px solid var(--green);
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover,
+button:hover {
+    background-color: var(--dark-green);
+}
+
+/* Tarea 2: misma fuente en los campos del formulario (no la toman del cuerpo) */
+/* Task 2: same font in the form fields (they don't take it from the body) */
+input,
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+/* Botones secundarios como cancelar*/
+/* Secondary buttons like cancel */
+button.secondary {
+    background-color: var(--card);
+    color: var(--green);
+}
+
+button.secondary:hover {
+    background-color: var(--light-green);
+}
+
+/* Formulario de compra */
+/* Purchase form */
+form.buy-form {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border-top: none;
+    box-shadow: none;
+}
+
+form.buy-form input[type="number"] {
+    width: 100px;
+}
+
+/* Enlaces horizontales */
+/* Horizontal links */
+.button-list {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.button-list li {
+    display: inline-block;
+    margin: 5px;
+}
+
+/* Task 2: formato vertical (movil), repite lo de la media query de abajo */
+/* Task 2: vertical layout (smartphone), repeats what the media query below does */
+body.vertical [class*="col-"] {
+    width: 100%;
+}
+
+body.vertical .header {
+    justify-content: center;
+    padding: 10px;
+}
+
+body.vertical .menu ul {
+    text-align: center;
+}
+
+body.vertical .hero {
+    justify-content: center;
+    padding: 20px;
+}
+
+body.vertical .product-list {
+    justify-content: center;
+}
+
+/* Adaptacion para pantallas con 768px o menor como mobiles */
+/* Adptation for screens with 768px or smaller like mobiles */
+
+/* Al ponerlo aqui abajo tiene prioridad ante otras clases, y por tanto, se aplica ante una pantalla pequeña */
+/* By putting it down here, it has priority over other classes, and therefore, it applies to a small screen */
+@media screen and (max-width: 768px) {
+    [class*="col-"] {
+        width: 100%;
+    }
+
+    .header {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .menu ul {
+        text-align: center;
+    }
+
+    .hero {
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .product-list {
+        justify-content: center;
+    }
+}

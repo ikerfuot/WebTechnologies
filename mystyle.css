@@ -10,6 +10,25 @@
     --gray-bg: #f4f4f4;
     --text: #333333;
     --border: #dddddd;
+    /* Fondo de tarjetas, cabecera y campos */
+    /* Background of cards, header and fields */
+    --card: white;
+    --red: #c62828;
+    --light-red: #fdecea;
+}
+
+/* Task 2: modo oscuro, la clase dark en el body cambia los valores de las variables */
+/* Task 2: dark mode, the dark class on the body changes the values of the variables */
+body.dark {
+    --green: #00923f;
+    --dark-green: #1a8f4f;
+    --light-green: #1f3a2a;
+    --gray-bg: #181818;
+    --text: #eeeeee;
+    --border: #555555;
+    --card: #262626;
+    --red: #ff6b6b;
+    --light-red: #4a2222;
 }
 
 /* El relleno no afecta al tamaño general de un elemento si box-sizing está configurado como border-box
@@ -134,7 +153,7 @@ a.button-link.light:hover {
 /* Product button that only fills with green on hover */
 a.button-link.outline:link,
 a.button-link.outline:visited {
-    background-color: white;
+    background-color: var(--card);
     color: var(--green);
     border: 2px solid var(--green);
 }
@@ -160,7 +179,7 @@ a.button-link.outline:hover {
     flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
+    background-color: var(--card);
     padding: 10px 40px;
     border-bottom: 3px solid var(--green);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
@@ -201,6 +220,21 @@ a.button-link.outline:hover {
 
 .menu a.cart-button:hover {
     background-color: var(--dark-green);
+}
+
+/* Task 2: botones Dark mode y Layout del menu */
+/* Task 2: Dark mode and Layout buttons of the menu */
+.menu button {
+    display: inline-block;
+    width: auto;
+    margin-top: 0;
+    padding: 8px 14px;
+    background-color: var(--card);
+    color: var(--green);
+}
+
+.menu button:hover {
+    background-color: var(--light-green);
 }
 
 /* Pie de pagina */
@@ -265,7 +299,7 @@ a.button-link.outline:hover {
 /* Caja blanca con sombreado */
 /* White box with shadow */
 .card {
-    background-color: white;
+    background-color: var(--card);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -331,7 +365,7 @@ p.breadcrumb {
     width: 320px;
     margin: 10px;
     padding: 20px;
-    background-color: white;
+    background-color: var(--card);
     border-radius: 8px;
     border-top: 5px solid var(--green);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -405,7 +439,7 @@ p.breadcrumb {
     display: block;
     color: var(--text);
     padding: 8px;
-    border-left: 4px solid white;
+    border-left: 4px solid var(--card);
 }
 
 .sidebar a:hover,
@@ -431,7 +465,7 @@ p.breadcrumb {
     width: 230px;
     margin: 10px;
     padding: 15px;
-    background-color: white;
+    background-color: var(--card);
     border-radius: 8px;
     text-align: center;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -466,6 +500,48 @@ p.breadcrumb {
     color: gray;
 }
 
+/* Campo de cantidad dentro de la tarjeta de producto */
+/* Quantity field inside the product card */
+.product-list input[type="number"] {
+    width: 80px;
+}
+
+/* Separacion entre los botones de la tarjeta de producto */
+/* Space between the buttons of the product card */
+.product-list button,
+.product-list a.button-link {
+    margin: 5px;
+}
+
+/* Task 4: buscador y boton de ordenar encima de los productos */
+/* Task 4: search field and sort button above the products */
+.product-tools {
+    margin: 10px;
+}
+
+.product-tools p {
+    text-align: left;
+    margin: 0;
+}
+
+.product-tools input[type="text"] {
+    width: 250px;
+    max-width: 100%;
+}
+
+.product-tools button {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+    padding: 10px 20px;
+}
+
+/* Task 4: la busqueda esconde las tarjetas con esta clase */
+/* Task 4: the search hides the cards with this class */
+.hidden {
+    display: none;
+}
+
 /* Pagina de producto */
 /* Product page */
 .product-info p {
@@ -476,6 +552,23 @@ p.breadcrumb {
 .product-info .price {
     font-size: 2em;
     color: var(--dark-green);
+}
+
+/* Task 4: calculadora de precio con IVA */
+/* Task 4: price calculator with tax */
+.calculator p {
+    text-align: left;
+    margin: 8px 0;
+}
+
+.calculator input[type="number"] {
+    width: 150px;
+}
+
+.calculator button {
+    display: inline-block;
+    width: auto;
+    padding: 10px 20px;
 }
 
 /* Tablas (pagina about de momento)*/
@@ -507,13 +600,44 @@ tr:hover td {
     background-color: var(--light-green);
 }
 
+/* Task 2: colores de las tablas en modo oscuro */
+/* Task 2: table colors in dark mode */
+body.dark th {
+    background-color: var(--border);
+}
+
+body.dark tr:nth-child(even) td {
+    background-color: var(--gray-bg);
+}
+
+body.dark tr:hover td {
+    background-color: var(--light-green);
+}
+
+/* Task 3: tabla de la lista de coleccion */
+/* Task 3: collection list table */
+.collection th {
+    width: auto;
+}
+
+.collection button {
+    display: inline-block;
+    width: auto;
+    margin-top: 0;
+    padding: 6px 12px;
+}
+
+.collection p {
+    font-weight: bold;
+}
+
 /* Formularios */
 /* Forms */
 
 /* Tarea 2: Marco y espaciado de los formularios */
 /* Task 2: frame and spacing of the forms */
 form {
-    background-color: white;
+    background-color: var(--card);
     width: 400px;
     max-width: 100%;
     margin: 20px auto;
@@ -545,6 +669,8 @@ input[type="number"] {
     padding: 10px 12px;
     border: 2px solid var(--border);
     border-radius: 4px;
+    background-color: var(--card);
+    color: var(--text);
 }
 
 /*Campo donde está el cursor */
@@ -552,6 +678,27 @@ input[type="number"] {
 input:focus {
     background-color: var(--light-green);
     border: 2px solid var(--green);
+}
+
+/* Task 1: campo con error en rojo y campo correcto en verde */
+/* Task 1: field with an error in red and correct field in green */
+input.error {
+    background-color: var(--light-red);
+    border: 2px solid var(--red);
+}
+
+input.valid {
+    background-color: var(--light-green);
+    border: 2px solid var(--green);
+}
+
+/* Task 1: aviso debajo del campo */
+/* Task 1: warning below the field */
+.message {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.85em;
+    color: var(--red);
 }
 
 /* Boton de enviar */
@@ -586,7 +733,7 @@ button {
 /* Botones secundarios como cancelar*/
 /* Secondary buttons like cancel */
 button.secondary {
-    background-color: white;
+    background-color: var(--card);
     color: var(--green);
 }
 
@@ -619,6 +766,30 @@ form.buy-form input[type="number"] {
 .button-list li {
     display: inline-block;
     margin: 5px;
+}
+
+/* Task 2: formato vertical (movil), repite lo de la media query de abajo */
+/* Task 2: vertical layout (smartphone), repeats what the media query below does */
+body.vertical [class*="col-"] {
+    width: 100%;
+}
+
+body.vertical .header {
+    justify-content: center;
+    padding: 10px;
+}
+
+body.vertical .menu ul {
+    text-align: center;
+}
+
+body.vertical .hero {
+    justify-content: center;
+    padding: 20px;
+}
+
+body.vertical .product-list {
+    justify-content: center;
 }
 
 /* Adaptacion para pantallas con 768px o menor como mobiles */

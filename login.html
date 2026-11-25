@@ -18,6 +18,10 @@
                     <li><a href="login.html">Customer Area</a></li>
                     <li><a href="about.html">Seller Information</a></li>
                     <li><a class="cart-button" href="shoppingCart.html">Shopping Cart</a></li>
+                    <!-- Task 2: botones de estilo, llaman a funciones de darkmode.js -->
+                    <!-- Task 2: style buttons, they call functions of darkmode.js -->
+                    <li><button type="button" onclick="toggleDark()">Dark mode</button></li>
+                    <li><button type="button" onclick="toggleLayout()">Layout</button></li>
                 </ul>
             </div>
         </div>
@@ -27,17 +31,21 @@
             <form action="customer.html" method="get">
                 <p>
                     <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
+                    <input type="text" id="username" name="username">
+                    <span class="message" id="usernameMessage"></span>
                 </p>
                 <p>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <input type="password" id="password" name="password">
+                    <span class="message" id="passwordMessage"></span>
                 </p>
                 <!-- primer boton al registro, al formulario. -->
                 <!-- first button goes to the registration, second one sends the form -->
                 <p>
                     <a href="registration.html"><button type="button" class="secondary">Go to Registration</button></a>
-                    <input type="submit" value="Login">
+                    <!-- Task 1: el boton valida y solo si todo esta bien va a customer.html -->
+                    <!-- Task 1: the button validates and only goes to customer.html if all is correct -->
+                    <button type="button" onclick="checkLogin()">Login</button>
                 </p>
             </form>
             <p>
@@ -50,5 +58,7 @@
             <p>FreshMarket Supermarket &middot; Esplanade 10, 85049 Ingolstadt &middot; +49 888 9999 0</p>
             <p>&copy; 2026 FreshMarket - Group 3 - Web Technologies</p>
         </div>
+        <script src="darkmode.js"></script>
+        <script src="validation.js"></script>
     </body>
 </html>
