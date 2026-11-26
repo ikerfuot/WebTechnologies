@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FreshMarket - Gilt-Head Bream</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css">
+    </head>
+    <body>
+        <!-- Barra superior - top bar -->
+        <div class="topbar">Free home delivery from 60 EUR &middot; Fresh products every day</div>
+        <!-- header: logo + main menu (same on every page) -->
+        <div class="header">
+            <a href="index.html"><img src="images/logo.png" alt="FreshMarket logo" width="200" height="50"></a>
+            <div class="menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="login.html">Customer Area</a></li>
+                    <li><a href="about.html">Seller Information</a></li>
+                    <li><a class="cart-button" href="shoppingCart.html">Shopping Cart</a></li>
+                    <!-- Task 2: botones de estilo, llaman a funciones de darkmode.js -->
+                    <!-- Task 2: style buttons, they call functions of darkmode.js -->
+                    <li><button type="button" onclick="toggleDark()">Dark mode</button></li>
+                    <li><button type="button" onclick="toggleLayout()">Layout</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container">
+            <p class="breadcrumb"><a href="index.html">Home</a> &gt; <a href="fishList.html">Fish &amp; Seafood</a> &gt; <a href="freshFishList.html">Fresh Fish</a> &gt; Gilt-Head Bream</p>
+            <div class="row">
+                <!-- imagen - picture -->
+                <div class="col-6">
+                    <div class="card">
+                        <img src="images/gilthead.jpg" alt="Gilt-Head Bream" width="400" height="400">
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <h1>Gilt-Head Bream</h1>
+                        <h2>Product Details</h2>
+                        <div class="product-info">
+                            <p class="price">9.95 EUR</p>
+                            <p><strong>Description:</strong> Fresh Mediterranean gilt-head bream with tender white meat. Perfect for the oven or the pan.</p>
+                            <p><strong>Origin:</strong> Spain</p>
+                            <p><strong>Weight:</strong> 450g</p>
+                        </div>
+                        <hr>
+                        <form class="buy-form" action="shoppingCart.html" method="get">
+                            <p>
+                                <label for="quantity">Quantity:</label>
+                                <input type="number" id="quantity" name="quantity" value="1" min="1">
+                            </p>
+                            <p>
+                                <input type="submit" value="Add to Shopping Cart">
+                            </p>
+                        </form>
+                        <hr>
+                        <!-- Task 4: calculadora de precio con IVA, usa getTotalPrice() de price.js -->
+                        <!-- Task 4: price calculator with tax, it uses getTotalPrice() of price.js -->
+                        <div class="calculator">
+                            <h2>Price calculator</h2>
+                            <p>
+                                <label for="priceWOTax">Price without tax (EUR):</label>
+                                <input type="number" id="priceWOTax" name="priceWOTax" value="9.95" min="0">
+                            </p>
+                            <button type="button" onclick="showPrices()">Calculate</button>
+                            <p>Price without tax: <strong id="resultWOTax">-</strong></p>
+                            <p>Tax (19%): <strong id="resultTax">-</strong></p>
+                            <p>Price with tax: <strong id="resultWithTax">-</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p>
+                <a href="freshFishList.html">Back to Fresh Fish Category</a> | <a href="index.html">Return to Homepage</a>
+            </p>
+        </div>
+        <!-- pie de pagina - footer -->
+        <div class="footer">
+            <p><a href="index.html">Home</a> | <a href="login.html">Customer Area</a> | <a href="about.html">Seller Information</a></p>
+            <p>FreshMarket Supermarket &middot; Esplanade 10, 85049 Ingolstadt &middot; +49 888 9999 0</p>
+            <p>&copy; 2026 FreshMarket - Group 3 - Web Technologies</p>
+        </div>
+        <script src="darkmode.js"></script>
+        <script src="price.js"></script>
+    </body>
+</html>
