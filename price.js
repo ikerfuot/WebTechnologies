@@ -1,5 +1,5 @@
-// Task 4: precio con 19% de IVA (el enunciado escribe "double" como en Java)
-// Task 4: price with 19% tax (the sheet writes "double" like in Java)
+// Task 4: precio con 19% de IVA
+// Task 4: price with 19% tax
 function getTotalPrice(priceWOTax) {
     let priceWithTax = priceWOTax * 1.19;
     // Se suma 0.5 para redondear al centimo mas cercano

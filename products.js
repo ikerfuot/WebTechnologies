@@ -31,8 +31,8 @@ function sortByPrice() {
     sortAscending = !sortAscending;
 }
 
-// Mira si word esta dentro de text, letra por letra (sin indexOf)
-// Checks if word is inside text, letter by letter (no indexOf)
+// Mira si word esta dentro de text, letra por letra
+// Checks if word is inside text, letter by letter
 function textHasWord(text, word) {
     for (let start = 0; start + word.length <= text.length; start++) {
         let same = true;
@@ -52,8 +52,8 @@ function textHasWord(text, word) {
 // Task 4: esconde las tarjetas que no coinciden con la palabra buscada
 // Task 4: hides the cards that do not match the searched word
 function searchProducts() {
-    // Distingue mayusculas y minusculas (Salmon no es salmon)
-    // It is case sensitive (Salmon is not salmon)
+    // Distingue mayusculas y minusculas
+    // It distinguishes between uppercase and lowercase
     let word = document.getElementById('searchWord').value;
     let cards = document.querySelectorAll('.product-list li');
     let found = 0;
